@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐾 Pets - Adopt Me Pets Shop</title>
+    <meta name="description" content="Explore nossa incrível coleção de pets do Adopt Me! Dragões, unicórnios, tartarugas e muito mais.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One:wght@400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-paw"></i>
+                <span>Belli Store</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </a>
+                <a href="pets.html" class="nav-link active">
+                    <i class="fas fa-heart"></i>
+                    <span>Pets</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" title="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="favorites-btn" id="favorites-btn" title="Favoritos">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="favorites-count">0</span>
+                </button>
+                
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1>
+                    <i class="fas fa-heart"></i>
+                    Nossos Pets Incríveis
+                </h1>
+                <p>Descubra a maior coleção de pets do Adopt Me! Cada pet é único e especial.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-header">
+                <h2>Encontre seu Pet Perfeito</h2>
+                <p>Escolha seus pets e clique no incone do WhatsApp para realizar sua compra!</p>
+            </div>
+            
+            <div class="filters-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Buscar pets...">
+                    <button class="clear-search" id="clear-search">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Categoria:</label>
+                    <select id="category-filter">
+                        <option value="">Todas</option>
+                        <option value="Dragões">Dragões</option>
+                        <option value="Aquáticos">Aquáticos</option>
+                        <option value="Mágicos">Mágicos</option>
+                        <option value="Felinos">Felinos</option>
+                        <option value="Caninos">Caninos</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Raridade:</label>
+                    <select id="rarity-filter">
+                        <option value="">Todas</option>
+                        <option value="Lendário">Lendário</option>
+                        <option value="Raro">Raro</option>
+                        <option value="Incomum">Incomum</option>
+                        <option value="Comum">Comum</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Preço:</label>
+                    <select id="price-filter">
+                        <option value="">Todos</option>
+                        <option value="0-50">R$ 0 - 50</option>
+                        <option value="50-100">R$ 50 - 100</option>
+                        <option value="100-200">R$ 100 - 200</option>
+                        <option value="200+">R$ 200+</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Ordenar:</label>
+                    <select id="sort-filter">
+                        <option value="featured">Destaque</option>
+                        <option value="price-low">Menor Preço</option>
+                        <option value="price-high">Maior Preço</option>
+                        <option value="rating">Melhor Avaliação</option>
+                        <option value="name">Nome A-Z</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-secondary" id="clear-filters">
+                    <i class="fas fa-undo"></i>
+                    Limpar Filtros
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pets Section -->
+    <section class="pets-section">
+        <div class="container">
+            <div class="pets-grid" id="pets-grid">
+                <!-- Pets serão carregados dinamicamente -->
+            </div>
+            
+            <div class="load-more-container">
+                <button class="btn btn-primary" id="load-more-btn" style="display: none;">
+                    <i class="fas fa-plus"></i>
+                    Carregar Mais Pets
+                </button>
+            </div>
+        </div>
+            
+            <div class="chat-input">
+                <input type="text" id="chat-input-field" placeholder="Digite sua mensagem...">
+                <button onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="floating-buttons">
+        <a href="https://www.tiktok.com/@bellistore_?_t=ZM-8xMrZHSQG2v&_r=1" target="_blank" class="floating-btn tiktok-btn" title="TikTok da Lojinha">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://chat.whatsapp.com/HiGgPajwdqzAE1cl68i15N" target="_blank" class="floating-btn whatsapp-btn" title="Grupo WhatsApp da Lojinha">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/filters.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

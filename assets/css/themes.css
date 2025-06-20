@@ -1,0 +1,363 @@
+/* ===== TEMA ESCURO ===== */
+[data-theme="dark"] {
+    /* Cores de Fundo */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-card: #1e293b;
+    --bg-overlay: rgba(0, 0, 0, 0.7);
+    
+    /* Cores de Texto */
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    --text-inverse: #0f172a;
+    
+    /* Cores de Borda */
+    --border-color: #334155;
+    --border-hover: #475569;
+    
+    /* Gradientes */
+    --gradient-card: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+    --gradient-hero: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* Ajustes específicos para o tema escuro */
+[data-theme="dark"] .navbar {
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(15, 23, 42, 0.98);
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+}
+
+[data-theme="dark"] .hero-background {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid-dark" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid-dark)"/></svg>');
+}
+
+[data-theme="dark"] .gradient-text {
+    background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+[data-theme="dark"] .search-box input,
+[data-theme="dark"] .filter-group select,
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .search-box input::placeholder,
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .pet-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .action-btn {
+    background: rgba(30, 41, 59, 0.9);
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .action-btn:hover {
+    background: var(--bg-card);
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .feature {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .contact-method {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .contact-form-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .footer {
+    background: #020617;
+}
+
+/* ===== ANIMAÇÕES DE TRANSIÇÃO DE TEMA ===== */
+.theme-transition {
+    transition: background-color var(--transition-normal), 
+                color var(--transition-normal),
+                border-color var(--transition-normal),
+                box-shadow var(--transition-normal);
+}
+
+/* Aplicar transição a elementos específicos */
+body,
+.navbar,
+.hero,
+.btn-secondary,
+.search-box input,
+.filter-group select,
+.form-group input,
+.form-group select,
+.form-group textarea,
+.pet-card,
+.action-btn,
+.feature,
+.contact-method,
+.contact-form-container {
+    transition: background-color var(--transition-normal), 
+                color var(--transition-normal),
+                border-color var(--transition-normal),
+                box-shadow var(--transition-normal);
+}
+
+/* ===== INDICADOR DE TEMA ===== */
+.theme-toggle {
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle i {
+    transition: transform var(--transition-normal);
+}
+
+[data-theme="dark"] .theme-toggle i.fa-moon {
+    transform: rotate(180deg) scale(0);
+}
+
+[data-theme="dark"] .theme-toggle::after {
+    content: '\f185';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    transition: transform var(--transition-normal);
+}
+
+[data-theme="light"] .theme-toggle::after {
+    transform: translate(-50%, -50%) rotate(-180deg) scale(0);
+}
+
+/* ===== MODO DE ALTO CONTRASTE ===== */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --text-secondary: #000000;
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    }
+    
+    [data-theme="dark"] {
+        --border-color: #ffffff;
+        --text-secondary: #ffffff;
+        --bg-card: #000000;
+    }
+}
+
+/* ===== MODO REDUZIDO DE MOVIMENTO ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .floating-pet {
+        animation: none;
+    }
+    
+    .hero-particles {
+        animation: none;
+    }
+    
+    .loading-spinner {
+        animation: none;
+        border: 4px solid var(--primary-color);
+    }
+}
+
+/* ===== TEMA PERSONALIZADO PARA IMPRESSÃO ===== */
+@media print {
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+    
+    .navbar,
+    .hero,
+    .filters-section,
+    .footer,
+    .modal,
+    .chat-widget,
+    .notification-container {
+        display: none !important;
+    }
+    
+    .pets-section {
+        padding: 20px 0;
+    }
+    
+    .pet-card {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+    
+    .btn {
+        display: none;
+    }
+}
+
+/* ===== TEMA PARA DISPOSITIVOS COM TELA PEQUENA ===== */
+@media (max-width: 480px) {
+    [data-theme="dark"] .hero {
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    }
+    
+    .theme-toggle,
+    .favorites-btn,
+    .cart-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .badge {
+        min-width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+}
+
+/* ===== ANIMAÇÕES ESPECÍFICAS DO TEMA ===== */
+@keyframes theme-switch-light {
+    0% { opacity: 0; transform: rotate(-30deg) scale(0.8); }
+    100% { opacity: 1; transform: rotate(0deg) scale(1); }
+}
+
+@keyframes theme-switch-dark {
+    0% { opacity: 0; transform: rotate(30deg) scale(0.8); }
+    100% { opacity: 1; transform: rotate(0deg) scale(1); }
+}
+
+[data-theme="light"] body {
+    animation: theme-switch-light 0.3s ease-out;
+}
+
+[data-theme="dark"] body {
+    animation: theme-switch-dark 0.3s ease-out;
+}
+
+/* ===== CORES PERSONALIZADAS PARA RARIDADES NO TEMA ESCURO ===== */
+[data-theme="dark"] .rarity-lendario {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+}
+
+[data-theme="dark"] .rarity-raro {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+[data-theme="dark"] .rarity-incomum {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+[data-theme="dark"] .rarity-comum {
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+    box-shadow: 0 0 20px rgba(100, 116, 139, 0.3);
+}
+
+/* ===== EFEITOS ESPECIAIS PARA O TEMA ESCURO ===== */
+[data-theme="dark"] .pet-card:hover {
+    box-shadow: var(--shadow-2xl), 0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+[data-theme="dark"] .btn-primary {
+    box-shadow: var(--shadow-md), 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(99, 102, 241, 0.4);
+}
+
+[data-theme="dark"] .feature-icon {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+[data-theme="dark"] .hero-title .highlight {
+    text-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
+}
+
+/* ===== SCROLLBAR PERSONALIZADA ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+}
+
+/* ===== SELEÇÃO DE TEXTO ===== */
+::selection {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] ::selection {
+    background: rgba(99, 102, 241, 0.4);
+    color: var(--text-primary);
+}
+
